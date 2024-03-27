@@ -1,4 +1,4 @@
-package com.mobi.mobe.service.jwt;
+package com.mobi.mobe.config;
 
 import com.mobi.mobe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
