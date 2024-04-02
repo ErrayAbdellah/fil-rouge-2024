@@ -1,6 +1,7 @@
 package com.mobi.mobe.service.implementations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mobi.mobe.dto.UserDTO;
 import com.mobi.mobe.dto.request.AuthenticationRequest;
 import com.mobi.mobe.dto.request.RegisterRequest;
 import com.mobi.mobe.dto.response.AuthenticationResponse;
@@ -15,6 +16,7 @@ import com.mobi.mobe.service.jwt.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,6 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +35,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
     private final TokenRepository tokenRepo;
+    private final ModelMapper modelMapper;
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
         Role role = new Role();
@@ -50,6 +54,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         String jwtToken = jwtService.generateToken(member);
 
         return AuthenticationResponse.builder().token(jwtToken).build();
+    }
+    public UserDTO getUserById(long userId){
+        Optional<User> user = userRepo.findById(userId);
+        return modelMapper.map(user,UserDTO.class);
     }
 
     @Override

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1711969675350-4" author="PC (generated)">
+        <createTable tableName="like">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_like"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="post_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711969675350-5" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="like" constraintName="FK_LIKE_ON_POST"
+                                 referencedColumnNames="id" referencedTableName="post"/>
+    </changeSet>
+    <changeSet id="1711969675350-6" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="like" constraintName="FK_LIKE_ON_USER"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1711969675350-1" author="PC (generated)">
+        <addAutoIncrement columnDataType="bigint" columnName="id" tableName="post"/>
+    </changeSet>
+    <changeSet id="1711969675350-2" author="PC (generated)">
+        <addAutoIncrement columnDataType="bigint" columnName="id" tableName="role"/>
+    </changeSet>
+    <changeSet id="1711969675350-3" author="PC (generated)">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="url_content" tableName="comment"/>
+    </changeSet>
+
+</databaseChangeLog>

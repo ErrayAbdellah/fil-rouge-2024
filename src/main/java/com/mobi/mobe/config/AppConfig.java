@@ -1,4 +1,4 @@
-package com.mobi.mobe.service.jwt;
+package com.mobi.mobe.config;
 
 import com.mobi.mobe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @RequiredArgsConstructor
 public class AppConfig {
+
     private final UserRepository userRepo;
 
     @Bean

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1711970541141-1" author="PC (generated)">
+        <createTable tableName="authority">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_authority"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-2" author="PC (generated)">
+        <createTable tableName="comment">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_comment"/>
+            </column>
+            <column name="content" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url_content" type="VARCHAR(255)"/>
+            <column name="post_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-3" author="PC (generated)">
+        <createTable tableName="like">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_like"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="post_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-4" author="PC (generated)">
+        <createTable tableName="location">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_location"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="zip_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-5" author="PC (generated)">
+        <createTable tableName="notification">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_notification"/>
+            </column>
+            <column name="content" type="VARCHAR(255)"/>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-6" author="PC (generated)">
+        <createTable tableName="post">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_post"/>
+            </column>
+            <column name="type_post" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url_content" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-7" author="PC (generated)">
+        <createTable tableName="post_report">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_postreport"/>
+            </column>
+            <column name="message" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="post_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-8" author="PC (generated)">
+        <createTable tableName="role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_role"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-9" author="PC (generated)">
+        <createTable tableName="role_authority">
+            <column name="authority_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_role_authority"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_role_authority"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-10" author="PC (generated)">
+        <createTable tableName="tag">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tag"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-11" author="PC (generated)">
+        <createTable tableName="tag_posts">
+            <column name="tag_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tag_posts"/>
+            </column>
+            <column name="posts_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tag_posts"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-12" author="PC (generated)">
+        <createTable tableName="token">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_token"/>
+            </column>
+            <column name="token" type="VARCHAR(255)"/>
+            <column name="token_type" type="VARCHAR(255)"/>
+            <column name="revoked" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expired" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-13" author="PC (generated)">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bio" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="profile_picture_url" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1711970541141-14" author="PC (generated)">
+        <addUniqueConstraint columnNames="token" constraintName="uc_token_token" tableName="token"/>
+    </changeSet>
+    <changeSet id="1711970541141-15" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="comment" constraintName="FK_COMMENT_ON_POST"
+                                 referencedColumnNames="id" referencedTableName="post"/>
+    </changeSet>
+    <changeSet id="1711970541141-16" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="comment" constraintName="FK_COMMENT_ON_USER"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1711970541141-17" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="like" constraintName="FK_LIKE_ON_POST"
+                                 referencedColumnNames="id" referencedTableName="post"/>
+    </changeSet>
+    <changeSet id="1711970541141-18" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="like" constraintName="FK_LIKE_ON_USER"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1711970541141-19" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="post_report"
+                                 constraintName="FK_POSTREPORT_ON_POST" referencedColumnNames="id"
+                                 referencedTableName="post"/>
+    </changeSet>
+    <changeSet id="1711970541141-20" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="post_report"
+                                 constraintName="FK_POSTREPORT_ON_USER" referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1711970541141-21" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="post" constraintName="FK_POST_ON_USER"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1711970541141-22" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="token" constraintName="FK_TOKEN_ON_USER"
+                                 referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1711970541141-23" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user" constraintName="FK_USER_ON_ROLE"
+                                 referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+    <changeSet id="1711970541141-24" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="authority_id" baseTableName="role_authority"
+                                 constraintName="fk_rolaut_on_authority" referencedColumnNames="id"
+                                 referencedTableName="authority"/>
+    </changeSet>
+    <changeSet id="1711970541141-25" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_authority"
+                                 constraintName="fk_rolaut_on_role" referencedColumnNames="id"
+                                 referencedTableName="role"/>
+    </changeSet>
+    <changeSet id="1711970541141-26" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="posts_id" baseTableName="tag_posts"
+                                 constraintName="fk_tag_posts_on_post" referencedColumnNames="id"
+                                 referencedTableName="post"/>
+    </changeSet>
+    <changeSet id="1711970541141-27" author="PC (generated)">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="tag_posts" constraintName="fk_tag_posts_on_tag"
+                                 referencedColumnNames="id" referencedTableName="tag"/>
+    </changeSet>
+
+</databaseChangeLog>

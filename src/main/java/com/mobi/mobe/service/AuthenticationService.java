@@ -1,5 +1,6 @@
 package com.mobi.mobe.service;
 
+import com.mobi.mobe.dto.UserDTO;
 import com.mobi.mobe.dto.request.AuthenticationRequest;
 import com.mobi.mobe.dto.request.RegisterRequest;
 import com.mobi.mobe.dto.response.AuthenticationResponse;
@@ -14,4 +15,5 @@ public interface AuthenticationService {
     AuthenticationResponse authenticate(AuthenticationRequest user);
     void logout();
     void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException, IOException;
+    UserDTO getUserById(long userId) ;
 }
