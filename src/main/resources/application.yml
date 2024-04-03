@@ -12,6 +12,7 @@ spring:
     hibernate:
       ddl-auto: none
   liquibase:
+#    enabled: false
     change-log: classpath:db/changelog/changelog-master.xml
 #    database-platform: org.hibernate.dialect.MySQL5Dialect
 server:

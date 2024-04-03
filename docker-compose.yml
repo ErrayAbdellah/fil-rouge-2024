@@ -14,7 +14,7 @@ services:
     depends_on:
       - mysql
     networks:
-      - springapimysql-net
+      - file-rouge-nt
 
   mysql:
     image: mysql:latest
@@ -27,10 +27,22 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - springapimysql-net
+      - file-rouge-nt
+
+  frontend:
+    image: array0001/front-app:v1
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    networks:
+      - file-rouge-nt
 
 networks:
-  springapimysql-net:
+  file-rouge-nt:
+    driver: bridgev
 
 volumes:
   mysql_data:
+
+
